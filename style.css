@@ -16,7 +16,7 @@ body {
   margin-top: 100px;
 }
 
-/* calculator contianer with buttons */
+/* calculator container with buttons */
 .calculator-box {
   width: 400px;
   background-color: gray;
@@ -24,6 +24,8 @@ body {
   border: 2px solid black;
   padding: 20px;
 }
+
+/* screen to display current and results */
 .screen {
   padding: 10px 20px;
   border: 2px solid black;
@@ -33,22 +35,26 @@ body {
   text-align: right;
 }
 
+/* current operations */
 .current-display {
   min-height: 32px;
   font-size: 20px;
 }
 
+/* results display */
 .results-display {
   min-height: 64px;
   font-size: 40px;
 }
 
+/* buttons a grid style with a gap within each */
 .button-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
 }
 
+/* each button, background, padding, border radius and font-size */
 .btn {
   padding: 20px;
   border: 2px black solid;
@@ -57,18 +63,22 @@ body {
   font-size: 20px;
 }
 
+/* both button clear and delete span 2 grid columns */
 .btn.span-2 {
   grid-column: span 2;
 }
 
+/* clear color */
 .btn.clear {
   background-color: salmon;
 }
 
+/* delete color */
 .btn.delete {
   background-color: cadetblue;
 }
 
+/* footer to display and need to link github */
 .footer {
   display: flex;
   justify-content: center;
