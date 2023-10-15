@@ -1,7 +1,27 @@
-// need to add buttons from 0 - 9 and add child nodes to parent calculator node.
-
 // neeed to add 4 functions for add, minus, multiply and divide.
+const add = (a, b) => a + b;
 
+const minus = (a, b) => a - b;
+
+const multiply = (a ,b) => a * b;
+
+const divide = (a, b) => a / b;
+
+// HOW TO UPDATE THE CURRENT VALUE IF WE USE SUM, MULTIPLY.
+// const sum = function (array) {
+//   return array.reduce((total, current) => total + current)
+// };
+// const multiplying = function (array) {
+//   return array.reduce((number, current) => number * current)
+// };
+// const division = function(array) {
+//   return array.reduce((number, current) => number / current);
+// };
+// const subtraction = function(array) {
+//   return array.reduce((number, current) => number - current)
+// };
+ 
+// need to add buttons from 0 - 9 and add child nodes to parent calculator node.
 
 //need to add a click event listener to apply functionality when click on all 4 buttons.
   //if else statements to check type of buttons.
