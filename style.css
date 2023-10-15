@@ -3,10 +3,12 @@
   padding: 0;
   margin: 0;
 }
+
 body {
   background-color: whitesmoke;
 }
 
+/* main container. */
 .main-container {
   display: flex;
   justify-content: center;
@@ -14,10 +16,64 @@ body {
   margin-top: 100px;
 }
 
+/* calculator contianer with buttons */
 .calculator-box {
-  height: 700px;
-  width: 500px;
+  width: 400px;
   background-color: gray;
   border-radius: 5%;
-  border: 1px solid black;
+  border: 2px solid black;
+  padding: 20px;
+}
+.screen {
+  padding: 10px 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background-color: whitesmoke;
+  text-align: right;
+}
+
+.current-display {
+  min-height: 32px;
+  font-size: 20px;
+}
+
+.results-display {
+  min-height: 64px;
+  font-size: 40px;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+.btn {
+  padding: 20px;
+  border: 2px black solid;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  font-size: 20px;
+}
+
+.btn.span-2 {
+  grid-column: span 2;
+}
+
+.btn.clear {
+  background-color: salmon;
+}
+
+.btn.delete {
+  background-color: cadetblue;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  bottom: 0px;
+  padding: 10px;
+  width: 100%;
 }

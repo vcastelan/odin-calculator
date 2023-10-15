@@ -10,8 +10,38 @@
 <body>
   <!-- div to contain the calculator -->
   <div class="main-container">
-    <div class="calculator-box"></div>
+    <div class="calculator-box">
+      <!-- screen display -->
+      <div class="screen">
+        <!-- current operation -->
+        <div class="current-display"></div>
+        <!-- results -->
+        <div class="results-display"></div>
+      </div>
+      <div class="button-grid">
+        <!-- clear and delete button -->
+        <button class="btn clear span-2">CLEAR</button>
+        <button class="btn delete span-2">DELETE</button>
+        <!-- each btn  -->
+        <button class="btn" id="int-7">7</button>
+        <button class="btn" id="int-8">8</button>
+        <button class="btn" id="int-9">9</button>
+        <button class="btn operator" id="divide">/</button>
+        <button class="btn" id="int-4">4</button>
+        <button class="btn" id="int-5">5</button>
+        <button class="btn" id="int-6">6</button>
+        <button class="btn operator" id="mulitply">x</button>
+        <button class="btn" id="int-1">1</button>
+        <button class="btn" id="int-2">2</button>
+        <button class="btn" id="int-3">3</button>
+        <button class="btn operator" id="subtract">-</button>
+        <button class="btn decimal">.</button>
+        <button class="btn" id="int-0">0</button>
+        <button class="btn equal" id="evaluate">=</button>
+        <button class="btn operator" id="add">+</button>
+      </div>
+    </div>
   </div>
-  
+  <footer class="footer">Copyright 2023 vcastelan</footer>
 </body>
 </html>
