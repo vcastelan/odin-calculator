@@ -22,7 +22,30 @@ const divide = (a, b) => a / b;
 // };
 
 //Create 3 variables for a number, an operator, and another number.
+let firstNumber;
+let operator;
+let secondNumber;
 
+//create a function operate
+  //i: 2 numbers and an operator to call operating functions
+  //O: operating functions results.
+function operate(first, second, operation) {
+  //use and if statement or switch case to check what type of operator is passsed.
+  if(operation === add) {
+    return add(first, second);
+  } else if(operation === minus) {
+    return minus(first, second);
+  } else if(opeartion === multiply) {
+    return multiply(first, second);
+  } else {
+    return divide(first, second);
+  }
+}
+
+//create a function that stores number. into a display value to use in next step
+const displayValue = function(value) {
+  return value;
+}
  
 // need to add buttons from 0 - 9 and add child nodes to parent calculator node.
 
