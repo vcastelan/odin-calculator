@@ -28,16 +28,16 @@ let secondNumber;
 //create a function operate
   //i: 2 numbers and an operator to call operating functions
   //O: operating functions results.
-function operate(first, second, operation) {
+function operate(a, b, operator) {
   //use and if statement or switch case to check what type of operator is passsed.
   switch (operator) {
     case '+':
       return add(a, b)
-    case '−':
+    case '-':
       return substract(a, b)
-    case '×':
+    case 'x':
       return multiply(a, b)
-    case '÷':
+    case '/':
       if (b === 0) return null
       else return divide(a, b)
     default:
