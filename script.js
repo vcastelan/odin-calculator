@@ -56,11 +56,18 @@ function appendNumber(number) {
 //need to add buttons from 0 - 9 and add child nodes to parent calculator node.
 const buttons = document.querySelectorAll('.btn');
 
-buttons.forEach((button) => {
-  buttons.addEventListener('click', () => {
-    appendNumber(button);
-  });
-});
+buttons.forEach(button => {
+  button.addEventListener('click', function() {
+    if(button.textContent !== 'x') {
+      output.textContent = button.textContent;
+      currentDisplay.textContent += button.textContent;
+    } else if(button.textContent === 'CLEAR') {
+      clearAll();
+    }
+  })
+})
+
+
 //need to add a click event listener to apply functionality when click on all 4 buttons.
   //if else statements to check type of buttons.
       //aka if plus, minus, multiply or divide  
@@ -73,6 +80,18 @@ buttons.forEach((button) => {
   
 //need to add a clear button to delete any operations or current value.
   //clear the whole display.
+function clearAll() {
+  output.textContent = '';
+  firstNumber = '';
+  operator = '';
+  secondNumber = '';
+  currentDisplay.textContent = '';
+}
+
+const clear = document.querySelector('.current-Display');
+clear.addEventListener('click', function() {
+    clearAll();
+});
 
 //need to add a delete button to delete current step 
   //to display delete clear the current text display.
