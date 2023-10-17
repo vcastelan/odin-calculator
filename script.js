@@ -1,12 +1,11 @@
 //add 4 functions for add, minus, multiply and divide.
 const add = (a, b) => a + b;
 
-const minus = (a, b) => a - b;
+const subtract = (a, b) => a - b;
 
 const multiply = (a ,b) => a * b;
 
 const divide = (a, b) => a / b;
-
 // HOW TO UPDATE THE CURRENT VALUE IF WE USE SUM, MULTIPLY.
 // const sum = function (array) {
 //   return array.reduce((total, current) => total + current)
@@ -22,7 +21,7 @@ const divide = (a, b) => a / b;
 // };
 
 //Create 3 variables for a number, an operator, and another number.
-let firstNumber;
+let firstNumber = 0;
 let operator;
 let secondNumber;
 
@@ -31,14 +30,18 @@ let secondNumber;
   //O: operating functions results.
 function operate(first, second, operation) {
   //use and if statement or switch case to check what type of operator is passsed.
-  if(operation === add) {
-    return add(first, second);
-  } else if(operation === minus) {
-    return minus(first, second);
-  } else if(opeartion === multiply) {
-    return multiply(first, second);
-  } else {
-    return divide(first, second);
+  switch (operator) {
+    case '+':
+      return add(a, b)
+    case '−':
+      return substract(a, b)
+    case '×':
+      return multiply(a, b)
+    case '÷':
+      if (b === 0) return null
+      else return divide(a, b)
+    default:
+      return null
   }
 }
 
