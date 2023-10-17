@@ -63,6 +63,11 @@ body {
   font-size: 20px;
 }
 
+/* hover effect on the buttons */
+.btn:hover {
+  background-color: darkgrey;
+}
+
 /* both button clear and delete span 2 grid columns */
 .btn.span-2 {
   grid-column: span 2;
@@ -73,9 +78,17 @@ body {
   background-color: salmon;
 }
 
+.btn.clear:hover {
+  background-color: rgb(178, 91, 82)
+}
+
 /* delete color */
 .btn.delete {
   background-color: cadetblue;
+}
+
+.btn.delete:hover {
+  background-color: rgb(52, 97, 98);
 }
 
 /* footer to display and need to link github */
