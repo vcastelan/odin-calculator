@@ -21,9 +21,13 @@ const divide = (a, b) => a / b;
 // };
 
 //Create 3 variables for a number, an operator, and another number.
-let firstNumber = 0;
-let operator;
-let secondNumber;
+let firstNumber = '';
+let operator = '';
+let secondNumber = '';
+const currentDisplay = document.querySelector('.current-display');
+const output = document.querySelector('.results-display');
+const digits = document.querySelectorAll('button');
+
 
 //create a function operate
   //i: 2 numbers and an operator to call operating functions
@@ -38,20 +42,25 @@ function operate(a, b, operator) {
     case 'x':
       return multiply(a, b)
     case '/':
-      if (b === 0) return null
-      else return divide(a, b)
+      return divide(a, b)
     default:
       return null
   }
 }
 
 //create a function that stores number. into a display value to use in next step
-const displayValue = function(value) {
-  return value;
+function appendNumber(number) {
+  currentDisplay.textContent = number;
 }
  
-// need to add buttons from 0 - 9 and add child nodes to parent calculator node.
+//need to add buttons from 0 - 9 and add child nodes to parent calculator node.
+const buttons = document.querySelectorAll('.btn');
 
+buttons.forEach((button) => {
+  buttons.addEventListener('click', () => {
+    appendNumber(button);
+  });
+});
 //need to add a click event listener to apply functionality when click on all 4 buttons.
   //if else statements to check type of buttons.
       //aka if plus, minus, multiply or divide  

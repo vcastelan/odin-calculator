@@ -75,7 +75,7 @@ body {
 
 /* clear color */
 .btn.clear {
-  background-color: salmon;
+  background-color: rgb(255, 101, 101)
 }
 
 .btn.clear:hover {
