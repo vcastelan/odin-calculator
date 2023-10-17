@@ -33,17 +33,18 @@ body {
   margin-bottom: 20px;
   background-color: whitesmoke;
   text-align: right;
+  min-height: 100px;
 }
 
 /* current operations */
-.current-display {
-  min-height: 32px;
+#current-display {
+  /* min-height: 32px; */
   font-size: 20px;
 }
 
 /* results display */
-.results-display {
-  min-height: 64px;
+#results-display {
+  /* min-height: 64px; */
   font-size: 40px;
 }
 
@@ -55,7 +56,7 @@ body {
 }
 
 /* each button, background, padding, border radius and font-size */
-.btn {
+button {
   padding: 20px;
   border: 2px black solid;
   border-radius: 5px;
@@ -64,30 +65,30 @@ body {
 }
 
 /* hover effect on the buttons */
-.btn:hover {
+button:hover {
   background-color: darkgrey;
 }
 
 /* both button clear and delete span 2 grid columns */
-.btn.span-2 {
+button.span-2 {
   grid-column: span 2;
 }
 
 /* clear color */
-.btn.clear {
+#clear {
   background-color: rgb(255, 101, 101)
 }
 
-.btn.clear:hover {
+#clear:hover {
   background-color: rgb(178, 91, 82)
 }
 
 /* delete color */
-.btn.delete {
+#delete {
   background-color: cadetblue;
 }
 
-.btn.delete:hover {
+#delete:hover {
   background-color: rgb(52, 97, 98);
 }
 
