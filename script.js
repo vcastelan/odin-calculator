@@ -8,26 +8,13 @@ const subtract = (a, b) => a - b;
 const multiply = (a ,b) => a * b;
 
 const divide = (a, b) => a / b;
-// HOW TO UPDATE THE CURRENT VALUE IF WE USE SUM, MULTIPLY.
-// const sum = function (array) {
-//   return array.reduce((total, current) => total + current)
-// };
-// const product = function (array) {
-//   return array.reduce((number, current) => number * current)
-// };
-// const division = function(array) {
-//   return array.reduce((number, current) => number / current);
-// };
-// const subtraction = function(array) {
-//   return array.reduce((number, current) => number - current)
-// };
 
 //Create 3 variables for a number, an operator, and another number.
 let firstNumber = '';
 let operator = '';
 let secondNumber = '';
-const currentDisplay = document.querySelector('#current-display');
-const output = document.querySelector('#results-display');
+const currentDisplay = document.querySelector('#current');
+const output = document.querySelector('#results');
 const buttons = document.querySelectorAll('button');
 
 //create a function operate
@@ -69,25 +56,34 @@ function operate(operator, a, b) {
 //need to add buttons from 0 - 9 and add child nodes to parent calculator node.
 buttons.forEach(button => {
   button.addEventListener('click', function() {
+    if(output.textContent.length >= 1) {
+      clearAll();
+    }
     // o: add button content if not an equal. or add or minus or divide or multiply sign
     if(button.id !== "clear") {
-      if(!currentDisplay.textContent.includes('=')) {
+      if(operator === '') {
         currentDisplay.textContent += button.textContent;
+        firstNumber = Number(currentDisplay.textContent);
         // else if it equals any of those operators we want update our current display, and remove our output display.
+      } else {
+        operator += button.textContent; 
       }
     } else {
-      currentDisplay.textContent = '';
-      output.textContent = '';
       clearAll();
     }
   })
 })
 
-// if(output.textContent.includes('+')) {
-//   output.textContent = operate(a, b, '+');
+
+// } else if(currentDisplay.textContent.includes('+')) {
+//   operate(add, firstNumber, secondNumber);
+// } else if(currentDisplay.textContent.includes('-')) {
+//   operate(subtract, firstNumber, secondNumber);
+// } else if(currentDisplay.textContent.includes('x')) {
+//   operate(multiply, firstNumber, secondNumber);
+// } else if(currentDisplay.textContent.includes('/')) {
+//   operate(divide, firstNumber, secondNumber);
 // }
-
-
 
 //need to add a click event listener to apply functionality when click on all 4 buttons.
   //if else statements to check type of buttons.
