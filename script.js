@@ -83,17 +83,6 @@ clear.addEventListener('click', function() {
   secondNumber = '';
 });
 
-
-// } else if(currentDisplay.textContent.includes('+')) {
-//   operate(add, firstNumber, secondNumber);
-// } else if(currentDisplay.textContent.includes('-')) {
-//   operate(subtract, firstNumber, secondNumber);
-// } else if(currentDisplay.textContent.includes('x')) {
-//   operate(multiply, firstNumber, secondNumber);
-// } else if(currentDisplay.textContent.includes('/')) {
-//   operate(divide, firstNumber, secondNumber);
-// }
-
 //need to add a click event listener to apply functionality when click on all 4 buttons.
   //if else statements to check type of buttons.
       //aka if plus, minus, multiply or divide  
@@ -106,25 +95,3 @@ clear.addEventListener('click', function() {
 
 //need to add a delete button to delete current step 
   //to display delete clear the current text display.
-
-  //create a function that stores number. into a display value to use in next step
-//need to add buttons from 0 - 9 and add child nodes to parent calculator node.
-// buttons.forEach(button => {
-//   button.addEventListener('click', function() {
-//     if(output.textContent.length >= 1) {
-//       clearAll();
-//     }
-//     // o: add button content if not an equal. or add or minus or divide or multiply sign
-//     if(button.id !== "clear") {
-//       if(operator === '') {
-//         currentDisplay.textContent += button.textContent;
-//         firstNumber = Number(currentDisplay.textContent);
-//         // else if it equals any of those operators we want update our current display, and remove our output display.
-//       } else {
-//         operator += button.textContent; 
-//       }
-//     } else {
-//       clearAll();
-//     }
-//   })
-// })
