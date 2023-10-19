@@ -1,5 +1,21 @@
-//add window on load to set it to clear and display 0 on results display
-// window.addEventListener('load', clearAll);
+// display dom nodes.
+let currentDisplay = document.querySelector('#current');
+let output = document.querySelector('#results');
+
+// buttons, operations, decimal and equal dom nodes.
+const digits = document.querySelectorAll('.digit');
+const operations = document.querySelectorAll('.operation');
+const decimal = document.querySelector('.decimal');
+const equal = document.querySelector('.eval');
+
+//need to add a clear button to delete any operations or current value
+const clear = document.querySelector('#clear');
+
+//Create 3 variables for a number, an operator, and another number.
+let firstNumber = '';
+let symbol = '';
+let secondNumber = '';
+
 //add 4 functions for add, minus, multiply and divide.
 const add = (a, b) => a + b;
 
@@ -9,18 +25,10 @@ const multiply = (a ,b) => a * b;
 
 const divide = (a, b) => a / b;
 
-//Create 3 variables for a number, an operator, and another number.
-let firstNumber = '';
-let operator = '';
-let secondNumber = '';
-const currentDisplay = document.querySelector('#current');
-const output = document.querySelector('#results');
-const buttons = document.querySelectorAll('button');
-
 //create a function operate
   //i: 2 numbers and an operator to call operating functions
   //O: operating functions results.
-function operate(operator, a, b) {
+function doMath(operator, a, b) {
   //use and if statement or switch case to check what type of operator is passsed.
   switch (operator) {
     case '+':
@@ -39,40 +47,41 @@ function operate(operator, a, b) {
   }
 }
 
-//need to add a clear button to delete any operations or current value.
-  //clear the whole display.
-  const clear = document.querySelector('#clear');
-  clear.addEventListener('click', clearAll);
+digits.forEach(digit => {
+  digit.addEventListener('click', function() {
+    inputNumber(digit.textContent);
+    currentDisplay.textContent = firstNumber;
+  });
+});
 
-  function clearAll() {
-    currentDisplay.textContent = '';
-    output.textContent = '';
-    firstNumber = '';
-    operator = '';
-    secondNumber = '';
+operations.forEach(mathSymbol => {
+  mathSymbol.addEventListener('click', function() {
+    handleOperator(mathSymbol.textContent);
+    currentDisplay.textContent = secondNumber + ' ' + symbol;
+    output.textContent = firstNumber;
+  });
+});
+
+function inputNumber(num) {
+  if(firstNumber.length <= 10) {
+    firstNumber += num;
   }
+}
 
-//create a function that stores number. into a display value to use in next step
-//need to add buttons from 0 - 9 and add child nodes to parent calculator node.
-buttons.forEach(button => {
-  button.addEventListener('click', function() {
-    if(output.textContent.length >= 1) {
-      clearAll();
-    }
-    // o: add button content if not an equal. or add or minus or divide or multiply sign
-    if(button.id !== "clear") {
-      if(operator === '') {
-        currentDisplay.textContent += button.textContent;
-        firstNumber = Number(currentDisplay.textContent);
-        // else if it equals any of those operators we want update our current display, and remove our output display.
-      } else {
-        operator += button.textContent; 
-      }
-    } else {
-      clearAll();
-    }
-  })
-})
+function handleOperator(op) {
+  symbol = op;
+  secondNumber = firstNumber;
+  firstNumber = '';
+}
+
+//clear the whole display.
+clear.addEventListener('click', function() {
+  currentDisplay.textContent = '';
+  output.textContent = '';
+  firstNumber = '';
+  operator = '';
+  secondNumber = '';
+});
 
 
 // } else if(currentDisplay.textContent.includes('+')) {
@@ -97,3 +106,25 @@ buttons.forEach(button => {
 
 //need to add a delete button to delete current step 
   //to display delete clear the current text display.
+
+  //create a function that stores number. into a display value to use in next step
+//need to add buttons from 0 - 9 and add child nodes to parent calculator node.
+// buttons.forEach(button => {
+//   button.addEventListener('click', function() {
+//     if(output.textContent.length >= 1) {
+//       clearAll();
+//     }
+//     // o: add button content if not an equal. or add or minus or divide or multiply sign
+//     if(button.id !== "clear") {
+//       if(operator === '') {
+//         currentDisplay.textContent += button.textContent;
+//         firstNumber = Number(currentDisplay.textContent);
+//         // else if it equals any of those operators we want update our current display, and remove our output display.
+//       } else {
+//         operator += button.textContent; 
+//       }
+//     } else {
+//       clearAll();
+//     }
+//   })
+// })
