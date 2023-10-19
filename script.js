@@ -34,7 +34,7 @@ function doMath(operator, a, b) {
     case '+':
       return add(a, b)
     case '-':
-      return substract(a, b)
+      return subtract(a, b)
     case 'x':
       return multiply(a, b)
     case '/':
@@ -92,15 +92,9 @@ clear.addEventListener('click', function() {
   secondNumber = '';
 });
 
-//need to add a click event listener to apply functionality when click on all 4 buttons.
-  //if else statements to check type of buttons.
-      //aka if plus, minus, multiply or divide  
-      //and call correct functionality.
-
-// need to add text display to one of my divs to display current steps.
-  //when i choose a button number. display button 
-  //when i choose an operation button. display operation
-  //if i choose another button or equal sign no matter display current value.
-
-//need to add a delete button to delete current step 
-  //to display delete clear the current text display.
+// event listener to make the calculator evaluate after pressing equal button.
+equal.addEventListener('click', function() {
+  let a = parseFloat(secondNumber);
+  let b = parseFloat(firstNumber);
+  output.textContent = doMath(symbol, a, b);
+})
