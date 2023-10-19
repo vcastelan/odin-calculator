@@ -47,27 +47,36 @@ function doMath(operator, a, b) {
   }
 }
 
+// event listener when adding clicking numbers/digits. it will display on current display
 digits.forEach(digit => {
   digit.addEventListener('click', function() {
+    if(!secondNumber) {
     inputNumber(digit.textContent);
     currentDisplay.textContent = firstNumber;
+    } else {
+      inputNumber(digit.textContent);
+      currentDisplay.textContent = secondNumber + ' ' + symbol + ' ' + firstNumber;
+    }
   });
 });
 
+// event listener for when adding operations. will add a symbol to our display
 operations.forEach(mathSymbol => {
   mathSymbol.addEventListener('click', function() {
     handleOperator(mathSymbol.textContent);
     currentDisplay.textContent = secondNumber + ' ' + symbol;
-    output.textContent = firstNumber;
+    // output.textContent = firstNumber;
   });
 });
 
+// function to add a number to display
 function inputNumber(num) {
   if(firstNumber.length <= 10) {
     firstNumber += num;
   }
 }
 
+// function to add an operator to our display. needs to add the value to our global variable, change our firstNum and remove the value of our firstNum
 function handleOperator(op) {
   symbol = op;
   secondNumber = firstNumber;
