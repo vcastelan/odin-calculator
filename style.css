@@ -13,7 +13,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+  margin-top: 250px;
 }
 
 /* calculator container with buttons */
@@ -33,7 +33,7 @@ body {
   margin-bottom: 20px;
   background-color: whitesmoke;
   text-align: right;
-  min-height: 100px;
+  min-height: 125px;
 }
 
 /* current operations */
@@ -44,7 +44,10 @@ body {
 
 /* results display */
 #results {
-  /* min-height: 64px; */
+  display: flex;
+  justify-content: end;
+  align-items: flex-end;
+  min-height: 75px;
   font-size: 40px;
 }
 

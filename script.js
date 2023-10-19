@@ -20,7 +20,7 @@ let secondNumber = '';
 //add 4 functions for add, minus, multiply and divide.
 const add = (a, b) => a + b;
 
-const subtract = (a, b) => (a - b).toFixed(2);
+const subtract = (a, b) => (a - b).toFixed(1);
 
 const multiply = (a ,b) => a * b;
 
