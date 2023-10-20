@@ -5,7 +5,7 @@ let output = document.querySelector('#results');
 // buttons, operations, decimal and equal dom nodes.
 const digits = document.querySelectorAll('.digit');
 const operations = document.querySelectorAll('.operation');
-const decimal = document.querySelector('.decimal');
+const decimal = document.querySelector('#decimal');
 const equal = document.querySelector('.eval');
 
 //need to add a clear button to delete any operations or current value
@@ -100,8 +100,28 @@ function handleOperator(op) {
 }
 
 //decimal event to add decimal point to the number
-decimal.addEventListener('click', function(e) {
-  inputNumber(e.target.textContent);
+decimal.addEventListener('click', function(ele) {
+  if(!firstNumber.includes(ele.target.textContent)) {
+    inputNumber(ele.target.textContent);
+  }
+  if(!secondNumber.includes(decimal.textContent)) {
+    inputNumber(decimal.textContent);
+  }
+})
+
+// event listener to make the calculator evaluate after pressing equal button.
+equal.addEventListener('click', function() {
+  if(!secondNumber) {
+    currentDisplay.textContent = firstNumber;
+  }
+    else if(currentDisplay.textContent) {
+    output.textContent = doMath(symbol, firstNumber, secondNumber);
+    currentDisplay.textContent = output.textContent;
+    firstNumber = output.textContent;
+    output.textContent = '';
+    secondNumber = '';
+    symbol = '';
+  } 
 })
 
 //clear the whole display.
@@ -115,20 +135,20 @@ clear.addEventListener('click', function() {
 
 // delete event to delete last input
 deleted.addEventListener('click', function() {
-  output.textContent = '';
-  currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
-  // firstNumber = firstNumber.slice(0, -1);
-  // secondNumber = secondNumber.slice(0, -1);
-  // symbol = symbol.slice(0, -1);
-})
+  if(firstNumber.length > 0) {
+    output.textContent = '';
+    currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
+    firstNumber = firstNumber.slice(0,-1);
+    // symbol = '';
+    secondNumber = '';
+  } else {
+    firstNumber = '';
+  }
 
-// event listener to make the calculator evaluate after pressing equal button.
-equal.addEventListener('click', function() {
-  if(currentDisplay.textContent)
-  output.textContent = doMath(symbol, firstNumber, secondNumber);
-  currentDisplay.textContent = output.textContent;
-  firstNumber = output.textContent;
-  output.textContent = '';
-  secondNumber = '';
-  symbol = '';
+  if(secondNumber > 0) {
+    currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
+    secondNumber = secondNumber.slice(0, -1);
+    secondNumber = '';
+  }
+
 })
