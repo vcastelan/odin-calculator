@@ -5,7 +5,7 @@ let output = document.querySelector('#results');
 // buttons, operations, decimal and equal dom nodes.
 const digits = document.querySelectorAll('.digit');
 const operations = document.querySelectorAll('.operation');
-const decimal = document.querySelector('#decimal');
+const decimal = document.querySelector('.decimal');
 const equal = document.querySelector('.eval');
 
 //need to add a clear button to delete any operations or current value
@@ -16,6 +16,8 @@ const deleted = document.querySelector('#delete')
 let firstNumber = '';
 let symbol = '';
 let secondNumber = '';
+// keep track of decimal points
+let decimalCounter = 0;
 
 //add 4 functions for add, minus, multiply and divide.
 const add = (a, b) => a + b;
@@ -97,22 +99,21 @@ function inputNumber(num) {
 // function to add an operator to our display. needs to add the value to our global variable, change our firstNum and remove the value of our firstNum
 function handleOperator(op) {
   symbol = op;
+  decimalCounter = 0;
 }
 
 //decimal event to add decimal point to the number
-decimal.addEventListener('click', function(ele) {
-  if(!firstNumber.includes(ele.target.textContent)) {
-    inputNumber(ele.target.textContent);
-  }
-  if(!secondNumber.includes(decimal.textContent)) {
-    inputNumber(decimal.textContent);
+decimal.addEventListener('click', function() {
+  decimalCounter++;
+  if(decimalCounter === 1) {
+    inputNumber(decimal.textContent); 
   }
 })
 
 // event listener to make the calculator evaluate after pressing equal button.
 equal.addEventListener('click', function() {
   if(!secondNumber) {
-    currentDisplay.textContent = firstNumber;
+    currentDisplay.textContent = firstNumber + symbol;
   }
     else if(currentDisplay.textContent) {
     output.textContent = doMath(symbol, firstNumber, secondNumber);
