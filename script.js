@@ -24,13 +24,15 @@ const subtract = (a, b) => (a - b).toFixed(1);
 
 const multiply = (a ,b) => a * b;
 
-const divide = (a, b) => (a / b).toFixed(8);
+const divide = (a, b) => (a / b).toFixed(4);
 
 //create a function operate
   //i: 2 numbers and an operator to call operating functions
   //O: operating functions results.
 function doMath(operator, a, b) {
   //use and if statement or switch case to check what type of operator is passsed.
+  a = parseFloat(firstNumber);
+  b = parseFloat(secondNumber);
   switch (operator) {
     case '+':
       return add(a, b)
@@ -51,12 +53,13 @@ function doMath(operator, a, b) {
 // event listener when adding clicking numbers/digits. it will display on current display
 digits.forEach(digit => {
   digit.addEventListener('click', function() {
-    if(!secondNumber) {
+    if(!currentDisplay.textContent.includes(symbol)) {
       inputNumber(digit.textContent);
       currentDisplay.textContent = firstNumber;
     } else {
       inputNumber(digit.textContent);
-      currentDisplay.textContent = secondNumber + ' ' + symbol + ' ' + firstNumber;
+      currentDisplay.textContent = firstNumber + symbol + secondNumber;
+      output.textContent = doMath(symbol, firstNumber, secondNumber);
     }
   });
 });
@@ -66,12 +69,12 @@ operations.forEach(mathSymbol => {
   mathSymbol.addEventListener('click', function() {
     if(!output.textContent) {
       handleOperator(mathSymbol.textContent);
-      currentDisplay.textContent = secondNumber + ' ' + symbol;
+      currentDisplay.textContent = firstNumber + symbol;
     } else {
-      currentDisplay.textContent = output.textContent + ' ' + mathSymbol.textContent;
-      secondNumber = output.textContent;
+      currentDisplay.textContent = output.textContent + mathSymbol.textContent;
+      firstNumber = output.textContent;
       output.textContent = '';
-      firstNumber = '';
+      secondNumber = '';
       symbol = '';
       handleOperator(mathSymbol.textContent);
     }
@@ -81,20 +84,19 @@ operations.forEach(mathSymbol => {
 // function to add a number to display
 function inputNumber(num) {
   if(firstNumber.length <= 10) {
-    firstNumber += num;
+    if(!symbol) {
+      firstNumber += num;
+    } else {
+      secondNumber += num;
+    }
+  } else {
+    return 'Input number less than 10 digits'
   }
 }
 
 // function to add an operator to our display. needs to add the value to our global variable, change our firstNum and remove the value of our firstNum
 function handleOperator(op) {
-  if(firstNumber) {
-    symbol = op;
-    secondNumber = firstNumber;
-    firstNumber = '';
-  } else {
-    symbol = op;
-    firstNumber = '';
-  }
+  symbol = op;
 }
 
 //decimal event to add decimal point to the number
@@ -107,7 +109,7 @@ clear.addEventListener('click', function() {
   currentDisplay.textContent = '';
   output.textContent = '';
   firstNumber = '';
-  operator = '';
+  symbol = '';
   secondNumber = '';
 });
 
@@ -122,7 +124,11 @@ deleted.addEventListener('click', function() {
 
 // event listener to make the calculator evaluate after pressing equal button.
 equal.addEventListener('click', function() {
-  let a = parseFloat(secondNumber);
-  let b = parseFloat(firstNumber);
-  output.textContent = doMath(symbol, a, b);
+  if(currentDisplay.textContent)
+  output.textContent = doMath(symbol, firstNumber, secondNumber);
+  currentDisplay.textContent = output.textContent;
+  firstNumber = output.textContent;
+  output.textContent = '';
+  secondNumber = '';
+  symbol = '';
 })
