@@ -136,20 +136,12 @@ clear.addEventListener('click', function() {
 
 // delete event to delete last input
 deleted.addEventListener('click', function() {
-  if(firstNumber.length > 0) {
     output.textContent = '';
-    currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
-    firstNumber = firstNumber.slice(0,-1);
-    // symbol = '';
-    secondNumber = '';
-  } else {
-    firstNumber = '';
-  }
-
-  if(secondNumber > 0) {
-    currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
-    secondNumber = secondNumber.slice(0, -1);
-    secondNumber = '';
-  }
-
+    firstNumber = firstNumber.slice(0, -1);
+    if(currentDisplay.textContent.includes(secondNumber)) {
+      currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
+      secondNumber = secondNumber.slice(0,- 1);
+    } else {
+      currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
+    }
 })
